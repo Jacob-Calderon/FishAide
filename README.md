@@ -9,7 +9,7 @@
 
 
 ## Description
-Write a brief description of the apps functionianoity and the langauges to be used. 
+Write a brief description of the app's functionality and the languages to be used.
 
 
 ## Deployment: 

@@ -11,10 +11,12 @@
 ## Description
 Write a brief description of the apps functionianoity and the langauges to be used. 
 
+With the rise of new anglers every day, information is hard and often confusing  to decide what type of fishing you want to do.  With Fish Aide you will have a fishing guide in your hand, with real time geolocation updates and up to date fishing reports given out by local anglers.  Your geolocation can show what lakes you can  fish from in a easy to use drop menu ; once the lake of your choice is clicked  a window opens showing which species are most common in that area.  If you choose for more information just click on the fish you want to know how to catch and Fish Aide will help you choose between best rod, line, hook, and set ups to use.  
+
 
 ## Deployment: 
 
-GitHub Repo: pending
+GitHub Repo: git@github.com:Jacob-Calderon/FishAide.git
 
 GitHub Pages: pending
 

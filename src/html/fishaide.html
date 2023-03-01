@@ -63,25 +63,33 @@
         </div>
       </head>
       
-      <body>
+      <head>
+    <title>Geolocation Weather App</title>
+    <style>
+      #weather-box {
+        width: 20%;
+        background-color: #e4e0e0;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
     <form>
       <input type="text" id="location-input" placeholder="Enter Location...">
       <button type="submit">Submit</button>
     </form>
     <div id="weather-box"></div>
     <script>
-      
       // Get user's location
-      
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-      // code to get weather data
-      fetch('https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=80ff5737350174b3f6554a20e31fcecd')
-        .then(response => response.json())
-        .then(data => {
-          // code to display weather data in the weather box
+        // Get weather data
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
+          .then(response => response.json())
+          .then(data => {
+            // Display weather data in the weather box
             const weatherBox = document.getElementById('weather-box');
             weatherBox.innerHTML = `
               <h2>Weather in ${data.name}</h2>
@@ -89,7 +97,8 @@
               <p>Humidity: ${data.main.humidity}%</p>
               <p>Wind Speed: ${data.wind.speed}m/s</p>
             `;
-        });
+          });
+      });
     </script>
   </body>
 </html>

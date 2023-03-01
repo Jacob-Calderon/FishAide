@@ -64,20 +64,31 @@
       </head>
       
       <body>
+    <form>
+      <input type="text" id="location-input" placeholder="Enter Location...">
+      <button type="submit">Submit</button>
+    </form>
     <div id="weather-box"></div>
     <script>
+      
+      // Get user's location
+      
+      navigator.geolocation.getCurrentPosition(position => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
       // code to get weather data
-      fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=80ff5737350174b3f6554a20e31fcecd')
+      fetch('https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=80ff5737350174b3f6554a20e31fcecd')
         .then(response => response.json())
         .then(data => {
           // code to display weather data in the weather box
-          const weatherBox = document.getElementById('weather-box');
-          weatherBox.innerHTML = `
-            <h2>Weather in London</h2>
-            <p>Temperature: ${data.main.temp}°F</p>
-            <p>Humidity: ${data.main.humidity}%</p>
-            <p>Wind Speed: ${data.wind.speed}m/s</p>
-          `;
+            const weatherBox = document.getElementById('weather-box');
+            weatherBox.innerHTML = `
+              <h2>Weather in ${data.name}</h2>
+              <p>Temperature: ${data.main.temp}°C</p>
+              <p>Humidity: ${data.main.humidity}%</p>
+              <p>Wind Speed: ${data.wind.speed}m/s</p>
+            `;
         });
     </script>
   </body>

@@ -28,7 +28,7 @@
         <style>
           #header-bar {
             width: 100%;
-            background-color: #ccc;
+            background-color: #42ba94;
             padding: 10px;
           }
           #search-box {
@@ -64,16 +64,21 @@
       </head>
       
       <body>
-        <title>Weather Box</title>
-        <div id="weather-box"></div>
-        
-      <style>
-        .weather-box {
-          width: 20%;
-          background-color: #171616;
-          padding: 10px;
-        }
-      </style>
-
-      </body>
+    <div id="weather-box"></div>
+    <script>
+      // code to get weather data
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=80ff5737350174b3f6554a20e31fcecd')
+        .then(response => response.json())
+        .then(data => {
+          // code to display weather data in the weather box
+          const weatherBox = document.getElementById('weather-box');
+          weatherBox.innerHTML = `
+            <h2>Weather in London</h2>
+            <p>Temperature: ${data.main.temp}°F</p>
+            <p>Humidity: ${data.main.humidity}%</p>
+            <p>Wind Speed: ${data.wind.speed}m/s</p>
+          `;
+        });
+    </script>
+  </body>
 </html>

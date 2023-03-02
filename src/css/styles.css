@@ -1,0 +1,44 @@
+#header-bar {
+    float-displace: auto;
+    width: 20%;
+    background-color: #edf5ef;
+    padding: 10px;
+}
+#search-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.tab-button1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+.tab-button2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+.menu-button {
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    padding: 10px;
+    background-color: #ccc;
+    text-align: center;
+}
+#container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#weather-box {
+    width: 20%;
+    background-color: #e4e0e0;
+    padding: 10px;
+    color: red;
+}

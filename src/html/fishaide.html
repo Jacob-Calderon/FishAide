@@ -93,5 +93,28 @@
               `})
 
     </script>
+    <!-- HTML Structure For Display -->
+    <div class="data-display">
+        <h1 class="title">Data Display</h1>
+        <div class="data-container">
+            <p class="data-item" id="data-1"></p>
+            <p class="data-item" id="data-2"></p>
+            <p class="data-item" id="data-3"></p>
+        </div>
+    </div>
+    <script>
+        function getDataFromScraper() {
+            return undefined;
+        }
+
+        // Get data from scraper
+        const data = getDataFromScraper();
+
+        // Render data in the HTML
+        document.getElementById('data-1').innerHTML = data[0];
+        document.getElementById('data-2').innerHTML = data[1];
+        document.getElementById('data-3').innerHTML = data[2];
+    </script>
+    </div>
   </body>
 </html>

@@ -1,10 +1,10 @@
-#header-bar {
+.header-bar {
     float-displace: auto;
     width: 20%;
     background-color: #edf5ef;
     padding: 10px;
 }
-#search-box {
+.search-box {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -31,14 +31,31 @@
     background-color: #ccc;
     text-align: center;
 }
-#container {
+.container {
     display: flex;
     justify-content: space-between;
 }
 
-#weather-box {
+.weather-box {
     width: 20%;
     background-color: #e4e0e0;
     padding: 10px;
     color: red;
+}
+
+/*============*/
+
+.data-display {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 30px;
+}
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.data-item {
+    padding: 5px;
+    margin-bottom: 5px;
 }

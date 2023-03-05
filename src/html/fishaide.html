@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
+
         <!-- Meta tags used for SEO -->
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Description of application" />
-        <meta name="keywords" content="Search keywords" />
-        <meta name="author" content="Jacob Calderon" />
+<!--        <meta charset="UTF-8" />-->
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--        <meta name="description" content="Description of application" />-->
+<!--        <meta name="keywords" content="Search keywords" />-->
+<!--        <meta name="author" content="Jacob Calderon" />-->
         <!-- All header links -->
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
         <link
@@ -27,13 +27,23 @@
         <title >Header Bar with Search Feature</title>
     </head>
         <body id="header-bar">
-          <div class="tab-button1">Tab 1</div>
-          <div class="tab-button1">Tab 2</div>
-          <label for="search-box"></label><input type="text" id="search-box" placeholder="Search...">
-          <div class="tab-button1">Tab 3</div>
-          <div class="tab-button1">Tab 4</div>
-          <div class="menu-button">
-            <span>&#9776;</span>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="tab-button">Tab 1</button>
+                    <button class="tab-button">Tab 2</button>
+                </div>
+                <div class="col-xs-6">
+                    <button class="tab-button">Tab 3</button>
+                    <button class="tab-button">Tab 4</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <input type="text" id="search-bar" onclick="search()">
+                </div>
+            </div>
         </div>
       </body>
 
@@ -43,13 +53,6 @@
 
     </style>
           <title> Fishing test</title>
-          <style>
-              #fish-input {
-                  width: 20%;
-                  background-color: #e4e0e0;
-                  padding: 10px;
-              }
-          </style>
 
   </head>
   <body>
@@ -65,7 +68,7 @@
         const longitude = position.coords.longitude;
 
         // Get weather data
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
+       // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
 
           .then(response => response.json())
           .then(data => {
@@ -82,19 +85,21 @@
 
 
 
-
-      fetch(`https://https://www.fishwatch.gov/api/`)
-          .then(response => response.json())
-          .then(data => {
-              //testing display of fish data
-              const fishWatch = document.getElementById('fish-watch');
-              fishWatch.innerHTML = `
-              <h2> Fish ${data.name} </h2>
-              `})
+      //
+      // fetch(`https://https://www.fishwatch.gov/api/`)
+      //     .then(response => response.json())
+      //     .then(data => {
+      //         //testing display of fish data
+      //         const fishWatch = document.getElementById('fish-watch');
+      //         fishWatch.innerHTML = `
+      //         <h2> Fish ${data.name} </h2>
+      //         `})
 
     </script>
     <!-- HTML Structure For Display -->
     <div class="data-display">
+        <script src="src/js/web-scraper.js"></script>
+
         <h1 class="title">Data Display</h1>
         <div class="data-container">
             <p class="data-item" id="data-1"></p>
@@ -104,7 +109,7 @@
     </div>
     <script>
         function getDataFromScraper() {
-            return undefined;
+            return data;
         }
 
         // Get data from scraper
@@ -114,7 +119,11 @@
         document.getElementById('data-1').innerHTML = data[0];
         document.getElementById('data-2').innerHTML = data[1];
         document.getElementById('data-3').innerHTML = data[2];
+
+        console.log(data)
     </script>
-    </div>
+
   </body>
+
+
 </html>

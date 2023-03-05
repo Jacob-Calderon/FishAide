@@ -31,9 +31,20 @@
     background-color: #ccc;
     text-align: center;
 }
+
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+.row {
+    width: 100%;
+}
+.col-xs-6 {
+    float: left;
+    width: 50%;
+}
+.col-xs-12 {
+    width: 100%;
 }
 
 .weather-box {
@@ -41,6 +52,11 @@
     background-color: #e4e0e0;
     padding: 10px;
     color: red;
+}
+.fish-input {
+    width: 20%;
+    background-color: #e4e0e0;
+    padding: 10px;
 }
 
 /*============*/

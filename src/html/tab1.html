@@ -2,9 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title color="black">Lure layer creator</title>
 </head>
 <body>
+<!--To add four windows, you can create multiple modal boxes with different `id` attributes and modify the `data-target` attribute of the button to correspond with the correct `id` of the modal you want to open. Here's an example:-->
+
+<!--HTML Code:-->
+
+<!--```-->
+<div class="container">
+    <h2>Color boxes</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                Open Window Box 1
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                Open Window Box 2
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
+                Open Window Box 3
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+                Open Window Box 4
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Window Box 1 Title</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Window Box 1 content goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="var win1 = window.open( 'Window 1', 'width=300,height=300');"> Call JavaScript Function" )</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="myModal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Window Box 2 Title</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Window Box 2 content goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="myFunction2()">Call JavaScript Function</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="myModal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Window Box 3 Title</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Window Box 3 content goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="myFunction3()">Call JavaScript Function</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="myModal4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Window Box 4 Title</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Window Box 4 content goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="myFunction4()">Call JavaScript Function</button>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>

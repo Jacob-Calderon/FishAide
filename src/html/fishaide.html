@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <input type="text" id="search-bar" onclick="search()">
+                    <label for="search-bar"></label><input type="text" id="search-bar" onclick="search()">
                 </div>
             </div>
         </div>
@@ -65,18 +65,18 @@
   </head>
   <body>
     <form>
-      <input type="text" id="location-input" placeholder="Enter Location...">
+        <label for="location-input"></label><input type="text" id="location-input" placeholder="Enter Location...">
       <button type="submit">Submit</button>
     </form>
     <div id="weather-box"></div>
-    <script src= "../js/apis.js">
+    <script src= "../js/mapbox.js">
       // Get user's location
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
         // Get weather data
-       // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
+       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
 
           .then(response => response.json())
           .then(data => {
@@ -142,14 +142,7 @@
 </div>
 
 <script>
-    var mymap = L.map('map').setView([51.505, -0.09], 13);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'your.mapbox.access.token'
-    }).addTo(mymap);
 </script>
 
 </html>

@@ -37,25 +37,15 @@ function getLocation() {
     });
 }
 
-// Function to get fish species by name
-async function getFishSpecies(name) {
-    const url = `https://fish-species.p.rapidapi.com/species?search=${name}`;
-    const response = await fetch(url, {
+    const options = {
+        method: 'GET',
         headers: {
-            'x-rapidapi-key': 'pk.eyJ1IjoiamFjb2JjYWxkZXJvbiIsImEiOiJjbGJjczRndnQwZzRhM3FueW1yYXlyZnI5In0.xrf8i3E4J2mPeYNSmK907A*',
-            'x-rapidapi-host': 'fish-species.p.rapidapi.com',
-        },
-    });
-    const data = await response.json();
-    return data[0];
-}
+            'X-RapidAPI-Key': 'cf3e6637a8msh49b20dff1bcef1bp12f797jsn986bc2e098ed',
+            'X-RapidAPI-Host': 'fish-species.p.rapidapi.com'
+        }
+    };
 
-// Example usage
-async function main() {
-    const weather = await getCurrentWeather();
-    const fish = await getFishSpecies('salmon');
-    console.log('Current weather:', weather);
-    console.log('Fish species:', fish);
-}
-
-main();
+    fetch('https://fish-species.p.rapidapi.com/fish_api/fishes', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));

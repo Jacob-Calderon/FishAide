@@ -1,9 +1,4 @@
 const puppeteer = require('puppeteer');
-const searchGoogle = async (query) => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(`https://www.google.com/search?q=${query}`);
-};
 
 const searchGoogle = async (query) => {
     const browser = await puppeteer.launch();
@@ -29,3 +24,5 @@ const searchGoogle = async (query) => {
 
     await browser.close();
 };
+
+searchGoogle('JavaScript web scraper');

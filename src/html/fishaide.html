@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
     <head>
         <title>FishAide</title>
-<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-<!--        <style>-->
-<!--            header {-->
-<!--                position: fixed;-->
-<!--                width: 100%;-->
-<!--                top: auto;-->
-<!--                left: auto;-->
-<!--                text-align: center;-->
-<!--            }-->
-<!--        </style>-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            header {
+                position: fixed;
+               /*width: 100%;*/
+               /*top: 20px;*/
+               /*left: 20px;*/
+                text-align: center;
+            }
+        </style>
     </head>
+    <title></title>
 <body>
 <header class="bg-primary text-white">FishAide</header>
 </body>
@@ -23,14 +25,14 @@
             href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond&family=Roboto+Serif:opsz@8..144&family=Sacramento&display=swap"
             rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="reset.css"> -->
+<!--    <link rel="stylesheet" href="reset.css"> -->
         <link rel="stylesheet" href="../css/styles.css">
         <!-- All header scripts required for compatability -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.1/modernizr.min.js"></script>
         <!-- Page title -->
         <title>Fish Aid</title>
-    </head>
+
     <head>
         <title >Header Bar with Search Feature</title>
     </head>
@@ -70,7 +72,7 @@
     </form>
     <div id="weather-box"></div>
     <script src= "../js/mapbox.js">
-      // Get user's location
+       // Get user's location
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -93,15 +95,15 @@
 
 
 
-      //
-      // fetch(`https://https://www.fishwatch.gov/api/`)
-      //     .then(response => response.json())
-      //     .then(data => {
-      //         //testing display of fish data
-      //         const fishWatch = document.getElementById('fish-watch');
-      //         fishWatch.innerHTML = `
-      //         <h2> Fish ${data.name} </h2>
-      //         `})
+
+      fetch(`fish-species.p.rapidapi.com`)
+          .then(response => response.json())
+          .then(data => {
+              //testing display of fish data
+              const fish = document.getElementById('fish');
+              fish.innerHTML = `
+              <h2> Fish ${data.name} </h2>
+              `})
 
     </script>
     <!-- HTML Structure For Display -->
@@ -128,7 +130,7 @@
         document.getElementById('data-2').innerHTML = data[1];
         document.getElementById('data-3').innerHTML = data[2];
 
-        console.log(data)
+        console.log()
     </script>
 
   </body>

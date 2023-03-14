@@ -78,20 +78,20 @@
         const longitude = position.coords.longitude;
 
         // Get weather data
-       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
+       //fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=762d4342cd94557823124548bf3668b7`)
 
-          .then(response => response.json())
-          .then(data => {
-            // Display weather data in the weather box
-            const weatherBox = document.getElementById('weather-box');
-            weatherBox.innerHTML = `
-              <h2>Weather in ${data.name}</h2>
-              <p>Temperature: ${data.main.temp}°C</p>
-              <p>Humidity: ${data.main.humidity}%</p>
-              <p>Wind Speed: ${data.wind.speed}m/s</p>
-            `;
-          });
-      });
+      //     .then(response => response.json())
+      //     .then(data => {
+      //       // Display weather data in the weather box
+      //       const weatherBox = document.getElementById('weather-box');
+      //       weatherBox.innerHTML = `
+      //         <h2>Weather in ${data.name}</h2>
+      //         <p>Temperature: ${data.main.temp}°C</p>
+      //         <p>Humidity: ${data.main.humidity}%</p>
+      //         <p>Wind Speed: ${data.wind.speed}m/s</p>
+      //       `;
+      //     });
+      // });
 
 
 

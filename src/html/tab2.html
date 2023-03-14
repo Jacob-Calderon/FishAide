@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Centered Bootstrap Container with JS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <title>Bootstrap Mapbox with a new layer and API</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
 </head>
 <body>
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <h1>Welcome to my centered container!</h1>
-</div>
-    <div>
-        <script src="src/js/puppeteerscraper.js"></script>
-<   </div>
+<div id="map"></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb2JjYWxkZXJvbiIsImEiOiJjbGJjczRndnQwZzRhM3FueW1yYXlyZnI5In0.xrf8i3E4J2mPeYNSmK907A';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-122.4795, 37.7705],
+        zoom: 12
+    });
+
+    // make an API call to fish-species to get information about local fish species
+    const apiUrl = 'https://fish-species.p.rapidapi.com/species?latitude=37.7705&longitude=-122.4795';
+
+    fetch(apiUrl, {
+        headers: {
+            'X-RapidAPI-Key': 'cf3e6637a8msh49b20dff1bcef1bp12f797jsn986bc2e098ed'
+        }
+    })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            let species = data[0].species_name;
+            let description = data[0].description;
+
+            // create a GeoJSON source object with the fish species information
+            const geojson = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {
+                            name: 'Golden Gate Park',
+                            species: species,
+                            description: description
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [-122.4795, 37.7705]
+                        }
+                    }
+                ]
+            };
+
+            // add the GeoJSON source to the map
+            map.on('load', function() {
+                map.addSource('places', {
+                    type: 'geojson',
+                    data: geojson
+                });
+
+                // add a layer for the GeoJSON source
+                map.addLayer({
+                    id: 'places',
+                    type: 'circle',
+                    source: 'places',
+                    paint: {
+                        'circle-radius': 10,
+                        'circle-color': '#007cbf'
+                    }
+                });
+
+                // create a popup for the marker with the fish species information
+                const popup = new mapboxgl.Popup({offset: 25})
+                    .setHTML('<h3>Golden Gate Park</h3><p>Local fish species: ' + species + '</p><p>Description: ' + description + '</p>');
+
+                // add a marker to the map with the popup
+                new mapboxgl.Marker()
+                    .setLngLat([-122.4795, 37.7705])
+                    .setPopup(popup)
+                    .addTo(map);
+            });
+        });
+</script>
 </body>
 </html>
